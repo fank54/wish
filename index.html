@@ -49,17 +49,17 @@
       transform: translateY(0); /* Press effect */
     }
 
-    #nagPanchamiVideo { /* Changed ID from nagPanchamiGif to nagPanchamiVideo */
+    #nagPanchamiImage { /* Changed ID from nagPanchamiVideo to nagPanchamiImage */
       display: none; /* Initially hidden */
       max-width: 100%;
       height: auto;
-      border-radius: 0.75rem; /* More rounded corners for the video */
+      border-radius: 0.75rem; /* More rounded corners for the image */
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
-      margin-bottom: 20px; /* Add some space below the video */
+      margin-bottom: 20px; /* Add some space below the image */
       animation: fadeInScale 0.5s ease-out forwards; /* Apply fade-in and scale animation */
     }
 
-    /* Keyframes for video fade-in and scale animation (reused from GIF) */
+    /* Keyframes for image fade-in and scale animation (reused from GIF) */
     @keyframes fadeInScale {
       0% { opacity: 0; transform: scale(0.8); }
       100% { opacity: 1; transform: scale(1); }
@@ -103,10 +103,9 @@
   <div id="container-0ae705054aaad6187ffaf1e1cad8547a"></div>
 
   <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full text-center">
-    <!-- Video element moved to the top, replacing the GIF -->
-    <video id="nagPanchamiVideo" src="https://fank54.github.io/wish/" loop autoplay muted playsinline class="mx-auto">
-      आपका ब्राउज़र वीडियो टैग का समर्थन नहीं करता है।
-    </video>
+    <!-- Image element moved to the top, replacing the video -->
+    <!-- महत्वपूर्ण: नीचे 'src' एट्रीब्यूट को अपनी वास्तविक नाग पंचमी तस्वीर के URL से बदलें। -->
+    <img id="nagPanchamiImage" src="https://placehold.co/400x300/e0ffe0/000?text=Nag+Panchami+Image" alt="Nag Panchami Wish Image" class="mx-auto">
 
     <h1 class="text-3xl font-bold mb-4 text-green-700">नाग पंचमी की शुभकामनाएँ!</h1>
     <p class="mb-6 text-lg">अपना नाम दर्ज करें और अपनी शुभकामनाएँ प्राप्त करें:</p>
@@ -150,15 +149,15 @@
         const userName = document.getElementById("userName").value;
         // Get the div where the wish will be displayed
         const wishOutputBox = document.getElementById("wishOutput");
-        // Get the video element
-        const nagPanchamiVideo = document.getElementById("nagPanchamiVideo");
+        // Get the image element
+        const nagPanchamiImage = document.getElementById("nagPanchamiImage"); // Changed variable name
         // Get the share buttons container
         const shareButtonsContainer = document.getElementById("shareButtonsContainer");
 
         // Check if a name was entered
         if (!userName) {
           wishOutputBox.innerText = "कृपया अपना नाम दर्ज करें।";
-          nagPanchamiVideo.style.display = 'none'; // Hide video if no name is entered
+          nagPanchamiImage.style.display = 'none'; // Hide image if no name is entered
           shareButtonsContainer.style.display = 'none'; // Hide share buttons
           console.error("User did not enter a name."); // Log error for debugging
           return; // Exit the function
@@ -174,10 +173,8 @@
 
         // Display the selected wish
         wishOutputBox.innerText = randomWish;
-        // Show the video
-        nagPanchamiVideo.style.display = 'block';
-        // Ensure video plays when shown (it's already autoplay, but good to be explicit)
-        nagPanchamiVideo.play();
+        // Show the image
+        nagPanchamiImage.style.display = 'block';
         // Show the share buttons
         shareButtonsContainer.style.display = 'flex'; // Use flex to maintain layout
 

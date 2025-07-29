@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Nag Panchami Wishes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for the body and elements, ensuring responsiveness */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(45deg, #f7f7f7, #e0ffe0, #f7f7f7); /* Initial gradient */
+      background-size: 400% 400%; /* Make gradient larger than viewport for smooth animation */
+      animation: gradientAnimation 15s ease infinite; /* Apply gradient animation */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Keyframes for background gradient animation */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Tailwind classes will handle most styling, but adding a base for input/button */
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 0.5rem; /* Rounded corners */
+      border: 1px solid #d1d5db; /* Light gray border */
+    }
+    button {
+      background-color: #4CAF50; /* Green */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform for hover effect */
+    }
+    button:hover {
+      background-color: #45a049;
+      transform: translateY(-2px); /* Slight lift on hover */
+    }
+    button:active {
+      transform: translateY(0); /* Press effect */
+    }
+
+    #nagPanchamiVideo { /* Changed ID from nagPanchamiGif to nagPanchamiVideo */
+      display: none; /* Initially hidden */
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.75rem; /* More rounded corners for the video */
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+      margin-bottom: 20px; /* Add some space below the video */
+      animation: fadeInScale 0.5s ease-out forwards; /* Apply fade-in and scale animation */
+    }
+
+    /* Keyframes for video fade-in and scale animation (reused from GIF) */
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Space between buttons */
+      margin-top: 20px;
+    }
+    .share-buttons button {
+      width: 100%; /* Make share buttons full width */
+      padding: 12px; /* Slightly larger padding for share buttons */
+      font-size: 1.1em;
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform for hover effect */
+    }
+    .share-buttons button:hover {
+      transform: translateY(-2px); /* Slight lift on hover */
+    }
+    .share-buttons button:active {
+      transform: translateY(0); /* Press effect */
+    }
+    .whatsapp-button {
+      background-color: #25D366; /* WhatsApp green */
+    }
+    .whatsapp-button:hover {
+      background-color: #1DA851;
+    }
+    .copy-button {
+      background-color: #007bff; /* Blue for copy */
+    }
+    .copy-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Ad script and div added here -->
+  <script async="async" data-cfasync="false" src="//pl27283606.profitableratecpm.com/0ae705054aaad6187ffaf1e1cad8547a/invoke.js"></script>
+  <div id="container-0ae705054aaad6187ffaf1e1cad8547a"></div>
+
+  <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full text-center">
+    <!-- Video element moved to the top, replacing the GIF -->
+    <video id="nagPanchamiVideo" src="https://fank54.github.io/wish/" loop autoplay muted playsinline class="mx-auto">
+      आपका ब्राउज़र वीडियो टैग का समर्थन नहीं करता है।
+    </video>
+
+    <h1 class="text-3xl font-bold mb-4 text-green-700">नाग पंचमी की शुभकामनाएँ!</h1>
+    <p class="mb-6 text-lg">अपना नाम दर्ज करें और अपनी शुभकामनाएँ प्राप्त करें:</p>
+
+    <input
+      type="text"
+      id="userName"
+      placeholder="उदाहरण: प्रिया"
+      class="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+    />
+    <button
+      onclick="generateNagPanchamiWish()"
+      class="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out shadow-md"
+    >
+      मेरी शुभकामना प्राप्त करें
+    </button>
+
+    <div id="wishOutput" class="mt-8 text-xl font-semibold text-gray-700"></div>
+
+    <div id="shareButtonsContainer" class="share-buttons" style="display: none;">
+      <button
+        onclick="shareOnWhatsApp()"
+        class="whatsapp-button text-white py-3 px-6 rounded-lg shadow-md"
+      >
+        WhatsApp पर शेयर करें
+      </button>
+      <button
+        onclick="copyWish()"
+        class="copy-button text-white py-3 px-6 rounded-lg shadow-md"
+      >
+        शुभकामना कॉपी करें
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Function to generate a personalized Nag Panchami wish
+    function generateNagPanchamiWish() {
+      try {
+        // Get the user's name from the input field
+        const userName = document.getElementById("userName").value;
+        // Get the div where the wish will be displayed
+        const wishOutputBox = document.getElementById("wishOutput");
+        // Get the video element
+        const nagPanchamiVideo = document.getElementById("nagPanchamiVideo");
+        // Get the share buttons container
+        const shareButtonsContainer = document.getElementById("shareButtonsContainer");
+
+        // Check if a name was entered
+        if (!userName) {
+          wishOutputBox.innerText = "कृपया अपना नाम दर्ज करें।";
+          nagPanchamiVideo.style.display = 'none'; // Hide video if no name is entered
+          shareButtonsContainer.style.display = 'none'; // Hide share buttons
+          console.error("User did not enter a name."); // Log error for debugging
+          return; // Exit the function
+        }
+
+        // Array of Nag Panchami wishes in Hindi, with the specific format requested
+        const nagPanchamiWishes = [
+          `${userName} की ओर से आपको नाग पंचमी की बहुत-बहुत बधाइयाँ!`
+        ];
+
+        // Select a random wish from the array (though now there's only one option)
+        const randomWish = nagPanchamiWishes[Math.floor(Math.random() * nagPanchamiWishes.length)];
+
+        // Display the selected wish
+        wishOutputBox.innerText = randomWish;
+        // Show the video
+        nagPanchamiVideo.style.display = 'block';
+        // Ensure video plays when shown (it's already autoplay, but good to be explicit)
+        nagPanchamiVideo.play();
+        // Show the share buttons
+        shareButtonsContainer.style.display = 'flex'; // Use flex to maintain layout
+
+      } catch (error) {
+        console.error("An error occurred during wish generation:", error);
+        document.getElementById("wishOutput").innerText = "शुभकामना उत्पन्न करने में कुछ त्रुटि हुई।";
+        document.getElementById("shareButtonsContainer").style.display = 'none'; // Hide share buttons on error
+      }
+    }
+
+    // Function to share the wish on WhatsApp
+    function shareOnWhatsApp() {
+      const wishText = document.getElementById("wishOutput").innerText;
+      const encodedText = encodeURIComponent(wishText + "\n\n#नागपंचमी #शुभकामनाएँ"); // Add hashtags
+      const whatsappUrl = `https://wa.me/?text=${encodedText}`;
+      window.open(whatsappUrl, '_blank'); // Open in a new tab
+    }
+
+    // Function to copy the wish to clipboard
+    function copyWish() {
+      const wishText = document.getElementById("wishOutput").innerText;
+      // Using a textarea to copy text to clipboard as navigator.clipboard.writeText might not work in iframes
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = wishText;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempTextArea);
+      alert("शुभकामना कॉपी कर ली गई है!"); // Simple alert for confirmation
+    }
+  </script>
+</body>
+</html>

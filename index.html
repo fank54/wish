@@ -98,9 +98,18 @@
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <!-- Ad script and div added here -->
-  <script async="async" data-cfasync="false" src="//pl27283606.profitableratecpm.com/0ae705054aaad6187ffaf1e1cad8547a/invoke.js"></script>
-  <div id="container-0ae705054aaad6187ffaf1e1cad8547a"></div>
+  <!-- Ad script and div added at the top -->
+  <script type="text/javascript">
+    atOptions = {
+      'key' : '0e0d9c1e7c5bb4d231f3e37360f3ddcb',
+      'format' : 'iframe',
+      'height' : 60,
+      'width' : 468,
+      'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.highperformanceformat.com/0e0d9c1e7c5bb4d231f3e37360f3ddcb/invoke.js"></script>
+  <div id="container-0e0d9c1e7c5bb4d231f3e37360f3ddcb"></div>
 
   <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full text-center">
     <!-- Image element moved to the top, replacing the video -->
@@ -141,6 +150,19 @@
     </div>
   </div>
 
+  <!-- New Ad script and div added at the bottom -->
+  <script type="text/javascript">
+    atOptions = {
+      'key' : '0e0d9c1e7c5bb4d231f3e37360f3ddcb',
+      'format' : 'iframe',
+      'height' : 60,
+      'width' : 468,
+      'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.highperformanceformat.com/0e0d9c1e7c5bb4d231f3e37360f3ddcb/invoke.js"></script>
+  <div id="container-0e0d9c1e7c5bb4d231f3e37360f3ddcb"></div>
+
   <script>
     // Function to generate a personalized Nag Panchami wish
     function generateNagPanchamiWish() {
@@ -150,7 +172,7 @@
         // Get the div where the wish will be displayed
         const wishOutputBox = document.getElementById("wishOutput");
         // Get the image element
-        const nagPanchamiImage = document.getElementById("nagPanchamiImage"); // Changed variable name
+        const nagPanchamiImage = document.getElementById("nagPanchamiImage");
         // Get the share buttons container
         const shareButtonsContainer = document.getElementById("shareButtonsContainer");
 
@@ -187,18 +209,21 @@
 
     // Function to share the wish on WhatsApp
     function shareOnWhatsApp() {
+      const websiteLink = "https://fank54.github.io/wish/"; // आपकी वेबसाइट का लिंक
       const wishText = document.getElementById("wishOutput").innerText;
-      const encodedText = encodeURIComponent(wishText + "\n\n#नागपंचमी #शुभकामनाएँ"); // Add hashtags
+      const message = `${wishText}\n\nयह शुभकामना यहाँ से भेजें: ${websiteLink}\n\n#नागपंचमी #शुभकामनाएँ`;
+      const encodedText = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/?text=${encodedText}`;
       window.open(whatsappUrl, '_blank'); // Open in a new tab
     }
 
     // Function to copy the wish to clipboard
     function copyWish() {
+      const websiteLink = "https://fank54.github.io/wish/"; // आपकी वेबसाइट का लिंक
       const wishText = document.getElementById("wishOutput").innerText;
-      // Using a textarea to copy text to clipboard as navigator.clipboard.writeText might not work in iframes
+      const message = `${wishText}\n\nयह शुभकामना यहाँ से भेजें: ${websiteLink}\n\n#नागपंचमी #शुभकामनाएँ`;
       const tempTextArea = document.createElement('textarea');
-      tempTextArea.value = wishText;
+      tempTextArea.value = message; // अब लिंक भी कॉपी होगा
       document.body.appendChild(tempTextArea);
       tempTextArea.select();
       document.execCommand('copy');
@@ -208,3 +233,4 @@
   </script>
 </body>
 </html>
+
